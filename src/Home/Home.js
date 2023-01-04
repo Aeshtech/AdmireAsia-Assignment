@@ -4,6 +4,7 @@ import Records from './Records';
 
 export default function Home() {
     const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     // User is currently on this page
     const [currentPage, setCurrentPage] = useState(1);
@@ -23,23 +24,28 @@ export default function Home() {
 
     //fetching data
     useEffect(() => {
-        try {
-            const fetchData = async () => {
-                const res = await fetch("https://dummyjson.com/products");
-                if (res.ok) {
-                    const data = await res.json();
-                    setData(data?.products);
-                } else {
-                    new Promise.reject(res);
-                }
-            }
-            fetchData();
-        } catch (error) {
-            console.log(error);
+        const fetchData = async () => {
+            fetch("https://dummyjson.com/products")
+                .then(response => {
+                    if (!response.ok) {
+                        // get error message from body or default to response status
+                        const error = response.status;
+                        return Promise.reject(error);
+                    } else {
+                        return response.json();
+                    }
+                }).then(
+                    data => setData(data?.products)
+                ).catch(
+                    error => console.log(error)
+                ).finally(
+                    onfinally => setLoading(false)
+                )
         }
-    }, [])
 
-    console.log(data);
+        setLoading(true);
+        fetchData();
+    }, [])
 
     return (
         <section>
@@ -55,13 +61,13 @@ export default function Home() {
                     </div>
                 </div>
 
-                <Records data={currentRecords} />
-
-                <Pagination
+                <Records data={currentRecords} loading={loading} />
+                {loading ? null : <Pagination
                     nPages={nPages}
                     currentPage={currentPage}
                     setCurrentPage={setCurrentPage}
-                />
+                />}
+
             </div>
         </section>
     )
