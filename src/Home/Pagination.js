@@ -13,7 +13,7 @@ export const Pagination = ({ nPages, currentPage, setCurrentPage }) => {
             setCurrentPage(currentPage - 1)
     }
     return (
-        <nav className='overflow-auto'>
+        <nav className='overflow-auto py-2'>
             <ul className='pagination justify-content-center'>
                 <li className="page-item">
                     <button className="page-link" onClick={()=>setCurrentPage(1)}><BiChevronsLeft/></button>
