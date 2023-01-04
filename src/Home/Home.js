@@ -43,8 +43,8 @@ export default function Home() {
 
     return (
         <section>
-            <div className='container px-5'>
-                <div className='mt-5 d-flex justify-content-between'>
+            <div className='container px-md-5'>
+                <div className='mt-5 d-flex justify-content-between flex-column flex-md-row'>
                     <h4 className='d-inline'>
                         Country List
                     </h4>
