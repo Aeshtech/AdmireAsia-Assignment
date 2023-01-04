@@ -1,0 +1,56 @@
+
+.sidenav {
+    height: 100%;
+    width:0px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #f1f1f1;
+    overflow-x: hidden;
+    transition: 0.5s;
+    border-right: 1px solid darkgray;
+  }
+
+  .navGrey, .brandContainer{
+    background-color: #d7d3d3;
+  }
+
+  .asideBranding{
+    width: 50%;
+    margin-left: 20%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: inline-block;
+  }
+  
+  .sidenav a {
+    padding: 0px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    box-sizing: border-box;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #705858;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 45px;
+    right: 25px;
+    color: grey;
+    border: 0;
+    font-size: 36px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
