@@ -1,0 +1,29 @@
+table, th, td {
+    border: 1px solid whitesmoke;
+    border-collapse: collapse;
+    cursor: pointer;
+}
+
+th, td {
+    padding: 10px;
+    position: relative;
+}
+
+td:hover{
+    background-color: #51526d;
+}
+td:hover > .tooltip{
+    display: flex;
+}
+
+.tooltip {
+    position: absolute;
+    background: #51526d;
+    white-space: nowrap;
+    padding: 10px;
+    flex-direction: column;
+    display: none;
+    left: 8rem;
+    top: 0px;
+    border-radius: 10px;
+}
